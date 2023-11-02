@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/script.js',
+    app: './src/main.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Production',
+      title: 'Todo List',
     }),
   ],
   module: {
