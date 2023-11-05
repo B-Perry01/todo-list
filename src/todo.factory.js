@@ -1,4 +1,4 @@
-function createTodo(title="title", description="", dueDate="", priority=3) {
+function createTodo(title="title", description="", dueDate="No date set", priority=3) {
     //doesn't make sense to be able to change a title & description, just make a new ToDo!
     const getTitle = () => title;
     const getDesc = () => description;
