@@ -7,11 +7,16 @@ function createTodo(title="title", description="", dueDate="", priority=3) {
     const changePrio = (newPrio) => priority = newPrio;
     const getPrio = () => priority;
 
+    let completionStatus = false;
+    const getStatus = () => completionStatus;
+    const changeStatus = () => !completionStatus;
+
     function logValues() {
-        console.log(`${getTitle()}, ${getDesc()}, ${getDate()}, ${getPrio()}`);
+        console.log(`${getTitle()}, ${getDesc()}, ${getDate()}, ${getPrio()}, ${getStatus()}`);
     }
 
-    return {getTitle, getDesc, changeDate, getDate, changePrio, getPrio, logValues}
+    return { getTitle, getDesc, changeDate, getDate, changePrio,
+                getPrio, getStatus, changeStatus, logValues }
 }
 
 export { createTodo };
