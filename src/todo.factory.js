@@ -9,7 +9,7 @@ function createTodo(title="title", description="", dueDate="", priority=3) {
 
     let completionStatus = false;
     const getStatus = () => completionStatus;
-    const changeStatus = () => !completionStatus;
+    const changeStatus = () => completionStatus = !completionStatus;
 
     function logValues() {
         console.log(`${getTitle()}, ${getDesc()}, ${getDate()}, ${getPrio()}, ${getStatus()}`);
