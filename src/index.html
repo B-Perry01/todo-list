@@ -7,6 +7,36 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <button id="nav-btn">nav</button>
+            <h1 class="title">ToDo</h1>
+        </div>
+        <div class="content"> 
+            <div id="nav-bar">
+                <div id="home">
+                    <h3>Home</h3>
+                    <ul>
+                        <li>All Tasks</li>
+                        <li>Today</li>
+                        <li>This Week</li>
+                        <li>Important</li>
+                    </ul>
+                </div>
+                <div id="projects">
+                    <h3>Projects</h3>
+                    <ul><img alt="plus"><button id="add-proj">Add project</button></ul>
+                </div>
+            </div>
+            <div id="container">
+                <div class="header">
+                    <h3 class="title" id="proj-title">Title</h3>
+                    <button id="add-task">Add Task</button>
+                </div>
+                <div id="tasks"></div>
+            </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

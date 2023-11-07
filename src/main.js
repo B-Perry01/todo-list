@@ -31,8 +31,6 @@ proj1.addTask(createTodo("Dog walk!", "Walk dog", format(Date.now(), dateFormat)
 
 let task = proj1.getTask("Title 1");
 task.changeStatus();
-task.logValues();
-proj1.displayProject();
 proj1.removeTask("Title 2");
 proj1.displayProject();
 
