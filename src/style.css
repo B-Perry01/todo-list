@@ -5,7 +5,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: clamp(100px, 1fr, 150px) 3fr;
     padding: 1rem 2rem;
 
     border: 1px solid black;
@@ -22,16 +22,21 @@ body {
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+    display: flex;
+    
 
     border: 1px solid black;
+}
+
+.hidden {
+    display: none;
 }
 
 #nav-btn {
     justify-self: start;
 }
 #nav-bar {
+    width: max(200px, 20%);
     padding: 0.5rem 1rem;
 
     border: 1px solid black;
@@ -39,7 +44,6 @@ body {
 #nav-bar ul, 
 #nav-bar ul li {
     list-style: none;
-    padding: 0;
     margin: 0.2rem 0.5rem;
 }
 
@@ -49,4 +53,22 @@ body {
 #tasks {
     display: flex;
     flex-flow: column nowrap;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.todo {
+    border: 1px solid black;
+    padding: 0.25rem 0.5rem;
+}
+.todo-header {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+}
+.header-sub {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    gap: 0.5rem;
 }

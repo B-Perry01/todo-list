@@ -1,10 +1,10 @@
-function createTodo(title="title", description="", dueDate="No date set", priority=3) {
+function createTodo(title="title", description="", dueDate="No date set", priority=false) {
     //doesn't make sense to be able to change a title & description, just make a new ToDo!
     const getTitle = () => title;
     const getDesc = () => description;
     const changeDate = (newDate) => dueDate = newDate;
     const getDate = () => dueDate;
-    const changePrio = (newPrio) => priority = newPrio;
+    const changePrio = () => priority = !priority;
     const getPrio = () => priority;
 
     let completionStatus = false;
