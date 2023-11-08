@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -17,15 +16,16 @@
                 <div id="home">
                     <h3>Home</h3>
                     <ul>
-                        <li>All Tasks</li>
-                        <li>Today</li>
-                        <li>This Week</li>
-                        <li>Important</li>
+                        <li id="all-tasks">All Tasks</li>
+                        <li id="today">Today</li>
+                        <li id="week">This Week</li>
+                        <li id="starred">Important</li>
                     </ul>
                 </div>
                 <div id="projects">
                     <h3>Projects</h3>
-                    <ul><img alt="plus"><button id="add-proj">Add project</button></ul>
+                    <ul id="proj-list"></ul>
+                    <ul><button id="add-proj"><img alt="Add"></button></ul>
                 </div>
             </div>
             <div id="container">
@@ -36,19 +36,17 @@
                 <div id="tasks">
                     <div class="todo">
                         <div class="todo-header">
-                            <h3 class="title">Title</h3>
+                            <h3 class="title">Example</h3>
                             <div class="header-sub">
-                                <h4 class="date">11-22-2033</h4>
-                                <img src="#" alt="star" class="star">
-                                <button>Edit/delete</button>
+                                <h4 class="date">22/11/33</h4>
+                                <img src="#" alt="colourless star">
+                                <button>Edit/Del</button>
                             </div>
                         </div>
-                        <p class="desc">Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
             </div>
-    </div>
-    
-    <script src="script.js"></script>
+    </div>    
 </body>
 </html>

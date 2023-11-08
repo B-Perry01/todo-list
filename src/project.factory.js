@@ -10,8 +10,15 @@ function createProject(title="Title") {
     const addTask = (todo) => todos.push(todo);
     const removeTask = (taskTitle) => 
         todos = todos.filter((task) => task.getTitle() !== taskTitle);
+    
 
-    return { todos, getTask, addTask, removeTask, getTitle, changeTitle }
+    //temp function to display the project for now before going to dom manipulation
+    const displayProject = () => {
+        console.log("\n"+title);
+        todos.forEach((proj) => proj.logValues());
+    }
+
+    return { todos, getTask, addTask, removeTask, getTitle, changeTitle, displayProject }
 }
 
 export { createProject };

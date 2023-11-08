@@ -1,13 +1,10 @@
-function setUpPage() {
-    const navBtn = document.getElementById("nav-btn");
-    navBtn.addEventListener("click", event => {
-        const navBar = document.getElementById("nav-bar");
-        navBar.classList.toggle("hidden"); //if hidden is set remove it, otherwise add it
-    });
-}
-
+import { format } from "date-fns";
+import { findAll, findToday, findWeek, findImportant } from "./findTasksHelperFunctions.js";
 function showTasksDOM (proj){
     const tasksCont = document.getElementById("tasks");
+    tasksCont.innerHTML = "";
+    const projTitle = document.getElementById("proj-title");
+    projTitle.textContent = proj.getTitle();
     proj.todos.forEach(todo => {
         const todoCont = document.createElement("div");
         const header = document.createElement("div");
@@ -23,6 +20,7 @@ function showTasksDOM (proj){
         title.classList.add("title");
         headerSubSec.classList.add("header-sub");
         date.classList.add("date");
+        //editDel.classList.add("");
         if (todo.getPrio() === true) {
             priority.classList.add("starred");
             priority.src = "#";
@@ -32,13 +30,19 @@ function showTasksDOM (proj){
             priority.src = "#";
             priority.alt = "colourless star";
         }
-        //editDel.classList.add("");
+        
         desc.classList.add("desc");
-
         title.textContent = todo.getTitle();
-        date.textContent = todo.getDate();
         editDel.textContent = "Edit/Del";
         desc.textContent = todo.getDesc();
+        /*
+        different date formats:
+        cccc do MMMM yyyy => Tuesday 2nd November 2023
+        ccc do MMM yy => Tue 5th Nov 23
+        dd/MM/yy =>  02/11/23
+        */
+        const dateFormat = "dd/MM/yy";
+        date.textContent = format(todo.getDate(), dateFormat);
 
         headerSubSec.appendChild(date);
         headerSubSec.appendChild(priority);
@@ -50,5 +54,46 @@ function showTasksDOM (proj){
         tasksCont.appendChild(todoCont);
     });
 }
+
+function setUpPage(projects) {
+    //toggling navbar
+    const navBtn = document.getElementById("nav-btn");
+    const navBar = document.getElementById("nav-bar");
+    navBtn.addEventListener("click", event => navBar.classList.toggle("hidden")
+    );
+
+    //setup links for navbar
+    const allTasks = document.getElementById("all-tasks");
+    const tday = document.getElementById("today");
+    const thisWeek = document.getElementById("week");
+    const starred = document.getElementById("starred");
+
+    const showAllTasks = () => showTasksDOM(findAll(projects));
+    const showTodayTasks = () => showTasksDOM(findToday(projects));
+    const showWeeklyTasks = () => showTasksDOM(findWeek(projects));
+    const showStarredTasks = () => showTasksDOM(findImportant(projects));
+
+    allTasks.addEventListener("click", showAllTasks);
+    tday.addEventListener("click", showTodayTasks);
+    thisWeek.addEventListener("click", showWeeklyTasks);
+    starred.addEventListener("click", showStarredTasks);
+
+    //display & setup links for projects in navbar
+    const projList = document.getElementById("proj-list");
+    projects.forEach(project => {
+        const projNavTitle = document.createElement("li");
+        projNavTitle.textContent = project.getTitle();
+        projNavTitle.addEventListener("click", event => {
+            showTasksDOM(project);
+        })
+        projList.appendChild(projNavTitle);        
+    });
+    const addProj = document.getElementById("add-proj");
+    addProj.addEventListener("click", event => {        
+        //add form here
+    });
+
+}
+
 
 export { setUpPage, showTasksDOM };
