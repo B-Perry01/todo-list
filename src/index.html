@@ -47,6 +47,34 @@
                     </div>
                 </div>
             </div>
+            <div class="modal-bg">
+                <div class="addtask-modal">
+                    <div class="modal-header">
+                        <h2 class="title">Add Task</h2>
+                        <p class="close">&times</p>
+                    </div>
+                    <form class="addtask-form" id="addTaskForm">
+                        <div>
+                            <label for="title">Title<span class="text-star">*</span></label>
+                            <input type="text" id="title" placeholder="Title" name="title" maxlength="75" autocomplete="off">
+                        </div>
+                        <div>
+                            <label for="description">Description</label>
+                            <textarea class="task-description" rows="3" cols="36"></textarea>
+                        </div>
+                        <div>
+                            <label for="due-date">Due Date</label>
+                            <input type="date" id="due-date" name="due-date">
+                        </div>
+                        <div>
+                            <label for="priority">Is this a urgent task?</label>
+                            <input type="checkbox" id="priority" name="priority">
+                        </div>
+                        <button type="submit" id="add-task-submit">Submit</button>
+                    </form>
+
+                </div>
+            </div>            
     </div>    
 </body>
 </html>

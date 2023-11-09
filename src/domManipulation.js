@@ -1,5 +1,10 @@
 import { format } from "date-fns";
 import { findAll, findToday, findWeek, findImportant } from "./findTasksHelperFunctions.js";
+
+function addTaskModal(proj) {
+    const modal = document.createElement("")
+}
+
 function showTasksDOM (proj){
     const tasksCont = document.getElementById("tasks");
     tasksCont.innerHTML = "";
