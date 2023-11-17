@@ -83,6 +83,9 @@ body {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
+.close {
+    font-size: 2rem;
+}
 .addtask-modal {
     width: 60%;
     margin: 10vh auto;
@@ -104,8 +107,6 @@ body {
     flex-flow: column nowrap;
     gap:0.2rem;
 }
-.addtask-form > div:last-child{
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
+.addtask-form:last-child{
+    
 }

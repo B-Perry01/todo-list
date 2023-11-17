@@ -1,8 +1,17 @@
 import { format } from "date-fns";
 import { findAll, findToday, findWeek, findImportant } from "./findTasksHelperFunctions.js";
 
-function addTaskModal(proj) {
-    const modal = document.createElement("")
+function setupTaskModal() {
+    const close = document.querySelectorAll(".close");
+    const modal = document.querySelector(".modal-bg");
+    close.forEach(clsBtn => {
+        clsBtn.addEventListener("click", e =>
+            modal.classList.toggle("hidden"));
+    })
+    window.addEventListener("click", e => {
+        if(e.target === modal)
+            modal.classList.add("hidden");
+    })
 }
 
 function showTasksDOM (proj){
@@ -97,6 +106,9 @@ function setUpPage(projects) {
     addProj.addEventListener("click", event => {        
         //add form here
     });
+    
+    //setup modal functionality
+    setupTaskModal();
 
 }
 
